@@ -234,3 +234,69 @@
 .product-card__btn:active {
   transform: scale(0.98);
 }
+
+/* =========================================
+   Page Banner / Breadcrumb Hero Component
+   ========================================= */
+
+.page-banner {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  background-color: #f8fafc;
+  /* Soft white-to-transparent fade over the background photo */
+  background-image: 
+    linear-gradient(90deg, #ffffff 30%, rgba(255, 255, 255, 0.85) 55%, rgba(255, 255, 255, 0.15) 100%),
+    var(--banner-bg, url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=80'));
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  padding: 48px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.page-banner__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.page-banner__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a202c;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.02em;
+}
+
+/* Breadcrumb Navigation */
+.page-banner__breadcrumbs {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #a0aec0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-banner__breadcrumbs a {
+  color: #718096;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.page-banner__breadcrumbs a:hover {
+  color: #1a202c;
+}
+
+.page-banner__breadcrumbs .separator {
+  color: #cbd5e0;
+  user-select: none;
+}
+
+.page-banner__breadcrumbs .current {
+  color: #a0aec0;
+}
