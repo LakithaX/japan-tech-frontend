@@ -328,3 +328,133 @@
   border-radius: 4px;
   margin: 0 auto;
 }
+
+/* =========================================
+   Form Fields & Contact Form Component
+   ========================================= */
+
+.contact-form {
+  max-width: 650px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 2-column row: Label on left, input on right */
+.form-group {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Align textarea row to top */
+.form-group--textarea {
+  align-items: flex-start;
+}
+
+.form-group--textarea .form-label {
+  padding-top: 14px;
+}
+
+/* Labels */
+.form-label {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  user-select: none;
+}
+
+.form-label .required {
+  color: #e05344;
+  margin-left: 2px;
+}
+
+/* Base input styling (soft gray pill) */
+.form-input,
+.form-textarea {
+  width: 100%;
+  background-color: #ebecee;
+  border: 1.5px solid transparent;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #2d3748;
+  padding: 14px 22px;
+  border-radius: 9999px; /* full pill */
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #8a94a0;
+  font-size: 0.95rem;
+}
+
+/* Focus states */
+.form-input:focus,
+.form-textarea:focus {
+  background-color: #ffffff;
+  border-color: #f7e044;
+  box-shadow: 0 0 0 3px rgba(247, 224, 68, 0.35);
+}
+
+/* Multi-line message field */
+.form-textarea {
+  border-radius: 24px;
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.5;
+}
+
+/* Form Actions / Submit Button */
+.form-actions {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.form-submit-btn {
+  grid-column: 2; /* Aligns under input fields */
+  justify-self: start;
+  background-color: #f7e044;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 9999px;
+  padding: 13px 32px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.form-submit-btn:hover {
+  background-color: #edd32f;
+  box-shadow: 0 4px 12px rgba(247, 224, 68, 0.35);
+}
+
+.form-submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Mobile responsiveness: stack label above input on small screens */
+@media (max-width: 600px) {
+  .form-group,
+  .form-actions {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .form-group--textarea .form-label {
+    padding-top: 0;
+  }
+
+  .form-submit-btn {
+    grid-column: 1;
+    width: 100%;
+  }
+}
