@@ -458,3 +458,92 @@
     width: 100%;
   }
 }
+
+/* =========================================
+   Pagination Component
+   ========================================= */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 40px 0;
+  user-select: none;
+}
+
+.pagination__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+}
+
+.pagination__item {
+  display: inline-block;
+}
+
+.pagination__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 10px;
+  border-radius: 9999px; /* Matches form pill aesthetic */
+  background-color: #ebecee;
+  color: #4a5568;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+/* Hover state for inactive links */
+.pagination__link:hover:not(.pagination__link--active):not([aria-disabled="true"]) {
+  background-color: #dfe1e5;
+  color: #1a1a1a;
+  transform: translateY(-1px);
+}
+
+/* Active Page Number (Yellow Accent) */
+.pagination__link--active {
+  background-color: #f7e044;
+  color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(247, 224, 68, 0.4);
+  cursor: default;
+}
+
+/* Arrow controls */
+.pagination__link--control {
+  font-size: 1rem;
+}
+
+.pagination__link--control svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+/* Disabled State (e.g. Previous on page 1) */
+.pagination__link[aria-disabled="true"] {
+  background-color: #f1f3f5;
+  color: #b0b7c0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Ellipsis (...) item */
+.pagination__ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 42px;
+  color: #8a94a0;
+  font-weight: 700;
+  font-size: 1rem;
+}

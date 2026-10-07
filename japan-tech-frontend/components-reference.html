@@ -139,5 +139,51 @@
 
 </form>
 
+<!-- Pagination Component -->
+<nav class="pagination" aria-label="Pagination Navigation">
+  <ul class="pagination__list">
+    
+    <!-- Previous Button (Disabled on first page) -->
+    <li class="pagination__item">
+      <a href="#" class="pagination__link pagination__link--control" aria-disabled="true" tabindex="-1" aria-label="Previous page">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </a>
+    </li>
+
+    <!-- Page Numbers -->
+    <li class="pagination__item">
+      <a href="#" class="pagination__link pagination__link--active" aria-current="page">1</a>
+    </li>
+
+    <li class="pagination__item">
+      <a href="#" class="pagination__link">2</a>
+    </li>
+
+    <li class="pagination__item">
+      <a href="#" class="pagination__link">3</a>
+    </li>
+
+    <li class="pagination__item">
+      <span class="pagination__ellipsis" aria-hidden="true">&hellip;</span>
+    </li>
+
+    <li class="pagination__item">
+      <a href="#" class="pagination__link">10</a>
+    </li>
+
+    <!-- Next Button -->
+    <li class="pagination__item">
+      <a href="#" class="pagination__link pagination__link--control" aria-label="Next page">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+    </li>
+
+  </ul>
+</nav>
+
 </body>
 </html>
