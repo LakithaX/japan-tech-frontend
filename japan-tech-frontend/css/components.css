@@ -300,3 +300,31 @@
 .page-banner__breadcrumbs .current {
   color: #a0aec0;
 }
+
+/* =========================================
+   Section Heading Component
+   ========================================= */
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.section-heading__title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #1e2022;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.02em;
+}
+
+/* Centered yellow accent underline */
+.section-heading__divider {
+  display: block;
+  width: 44px;
+  height: 4px;
+  background-color: #f7e044; /* Matches theme accent yellow */
+  border-radius: 4px;
+  margin: 0 auto;
+}
