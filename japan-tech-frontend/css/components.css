@@ -1,0 +1,74 @@
+/* =========================================
+   Service / Feature Card Component
+   ========================================= */
+
+.service-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f1f3f5;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 380px;
+  width: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+}
+
+/* Icon Container with Yellow Accent Blob */
+.service-card__icon-wrapper {
+  position: relative;
+  width: 110px;
+  height: 90px;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Yellow rounded backdrop blob */
+.service-card__blob {
+  position: absolute;
+  width: 90px;
+  height: 64px;
+  background-color: #f7e044; /* vivid yellow accent */
+  border-radius: 36px;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* SVG icon floating on top */
+.service-card__icon {
+  position: relative;
+  z-index: 2;
+  width: 52px;
+  height: 52px;
+  stroke: #1c1c1c;
+  display: block;
+}
+
+/* Typography */
+.service-card__title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #333333;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.01em;
+}
+
+.service-card__desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #7a828a;
+  margin: 0;
+  font-weight: 400;
+}
