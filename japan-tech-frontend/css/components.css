@@ -72,3 +72,165 @@
   margin: 0;
   font-weight: 400;
 }
+
+/* =========================================
+   Product Card Component
+   ========================================= */
+
+.product-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #eef0f3;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  width: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Badge (e.g. Sale, New, In Stock) */
+.product-card__badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: #f7e044; /* Matches accent yellow */
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+/* Image Container */
+.product-card__image-box {
+  width: 100%;
+  height: 220px;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.product-card:hover .product-card__image {
+  transform: scale(1.05);
+}
+
+/* Card Body Content */
+.product-card__body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-card__category {
+  font-size: 0.8rem;
+  color: #8c959f;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.product-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #24292f;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.product-card__title a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.product-card__title a:hover {
+  color: #d8b200;
+}
+
+/* Rating and Price Row */
+.product-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.product-card__price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.product-card__price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1a1a1a;
+}
+
+.product-card__old-price {
+  font-size: 0.9rem;
+  color: #a0aec0;
+  text-decoration: line-through;
+}
+
+.product-card__rating {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a5568;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.product-card__rating-star {
+  color: #f59e0b;
+}
+
+/* Add to Cart Button */
+.product-card__btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  margin-top: auto;
+}
+
+.product-card__btn:hover {
+  background-color: #333333;
+}
+
+.product-card__btn:active {
+  transform: scale(0.98);
+}
