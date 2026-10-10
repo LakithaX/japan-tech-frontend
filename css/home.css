@@ -1,0 +1,45 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: absolute;        /* a layer like the video and overlay */
+    top: 0;                    /* pin to the corner... */
+    left: 0;
+    width: 100%;               /* ...and stretch over the whole hero */
+    height: 100%;
+
+    display: flex;             /* the centering lines stay the same */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-4);
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    color: var(--white);
+    font-size: 64px;
+    max-width: 900px;
+    line-height: 1.2;
+}

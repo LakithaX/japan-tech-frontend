@@ -1,0 +1,102 @@
+.nav {
+    background: var(--nav-bg);
+    padding: var(--space-3) 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: transparent;
+    transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+}
+
+.nav.scrolled {
+    background: rgba(17, 17, 17, 0.85);          /* near-black at 85% opacity */
+    backdrop-filter: blur(10px);                 /* blurs whatever is behind the bar */
+    -webkit-backdrop-filter: blur(10px);         /* same thing for Safari */
+    padding: var(--space-2) 0;                   /* 16px instead of 24px: a slimmer bar */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);   /* soft shadow under the bar */
+}
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.nav-links a {
+    color: var(--white);
+    font-weight: 600;
+    padding-bottom: 6px;                    /* room between the text and the underline */
+    border-bottom: 2px solid transparent;   /* invisible underline that already takes up space */
+    transition: opacity 0.3s, border-color 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;                           /* dims the text; no underline */
+}
+
+.nav-links a.active {
+    border-bottom-color: var(--accent);     /* the red underline appears only on the current page */
+}
+
+.nav-logo img {
+    height: 60px;
+    width: auto;
+    transition: height 0.4s;
+}
+
+.nav.scrolled .nav-logo img {
+    height: 44px;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);          /* space between the heart and the call button */
+}
+
+.nav-call {
+    display: inline-flex;         /* lets the icon and text sit on one line */
+    align-items: center;
+    gap: var(--space-1);
+    padding: 12px 24px;           /* the whitespace inside the pill */
+    background: var(--accent);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: 999px;         /* pill shape */
+    transition: background 0.3s;
+}
+
+.nav-call:hover {
+    background: var(--accent-dark);   /* assumes you added this variable */
+}
+
+.nav-saved {
+    position: relative;
+    display: inline-flex;
+    color: var(--white);        /* this is the missing line */
+    transition: color 0.3s;
+}
+
+.nav-saved:hover {
+    color: var(--accent);
+}
+
+.nav-saved-count {
+    position: absolute;           /* floats the badge on the corner of the heart */
+    top: -6px;
+    right: -12px;
+    min-width: 18px;
+    height: 18px;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 11px;
+    line-height: 18px;            /* same as height, which centers the number vertically */
+    text-align: center;
+    border-radius: 50%;
+}
