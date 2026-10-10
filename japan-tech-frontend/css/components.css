@@ -547,3 +547,95 @@
   font-weight: 700;
   font-size: 1rem;
 }
+
+/* =========================================
+   CTA Banner Component (Cracked Screen / Feature)
+   ========================================= */
+
+.cta-banner {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  background-color: #f8fafc;
+  /* Horizontal gradient fade from solid off-white on the left into the photo on the right */
+  background-image: 
+    linear-gradient(90deg, #f8fafc 40%, rgba(248, 250, 252, 0.85) 55%, rgba(248, 250, 252, 0) 80%),
+    var(--cta-bg, url('https://images.unsplash.com/photo-1597740985671-2a8a3b80532e?auto=format&fit=crop&w=1600&q=80'));
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
+  box-sizing: border-box;
+}
+
+.cta-banner__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.cta-banner__content {
+  max-width: 520px;
+}
+
+.cta-banner__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 14px 0;
+  letter-spacing: -0.02em;
+}
+
+/* Yellow accent line under the heading */
+.cta-banner__divider {
+  display: block;
+  width: 38px;
+  height: 4px;
+  background-color: #f7e044;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.cta-banner__text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #64748b;
+  margin: 0 0 16px 0;
+}
+
+.cta-banner__btn {
+  display: inline-block;
+  background-color: #f7e044;
+  color: #1a1a1a;
+  padding: 13px 30px;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.cta-banner__btn:hover {
+  background-color: #edd32f;
+  box-shadow: 0 4px 12px rgba(247, 224, 68, 0.35);
+  transform: translateY(-2px);
+}
+
+.cta-banner__btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+  .cta-banner {
+    background-image: 
+      linear-gradient(rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.92)),
+      var(--cta-bg, url('https://images.unsplash.com/photo-1597740985671-2a8a3b80532e?auto=format&fit=crop&w=1600&q=80'));
+  }
+}
