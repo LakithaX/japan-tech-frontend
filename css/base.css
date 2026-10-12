@@ -23,7 +23,9 @@
     --space-5: 80px;
 
     --radius: 16px;                                 /* rounded corners for all cards*/
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);    /* soft shadow for all corners */      
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);    /* soft shadow for all corners */  
+    
+    --on-dark: rgba(255, 255, 255, 0.7);   /* text on dark backgrounds */
 }
 
 /* "*" means every element on the page.*/
