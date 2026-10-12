@@ -1,0 +1,14 @@
+.preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));    gap: 24px;
+    padding: 40px;
+    background: #e2e8f0;
+}
+
+.card {
+    background: white;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}

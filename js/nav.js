@@ -9,3 +9,10 @@ window.addEventListener('scroll', function () {
     nav.classList.remove('scrolled');
   }
 });
+
+const navToggle = document.getElementById('navToggle');   // find the burger button
+
+navToggle.addEventListener('click', function () {
+    const isOpen = nav.classList.toggle('menu-open');     // adds or removes the class
+    navToggle.setAttribute('aria-expanded', isOpen);      // keep screen readers informed
+});

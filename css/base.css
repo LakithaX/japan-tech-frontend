@@ -21,6 +21,9 @@
     --space-3: 24px;
     --space-4: 40px;
     --space-5: 80px;
+
+    --radius: 16px;                                 /* rounded corners for all cards*/
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);    /* soft shadow for all corners */      
 }
 
 /* "*" means every element on the page.*/
@@ -34,6 +37,7 @@ body {
     font-family: var(--font-family);
     line-height: 1.6;
 }
+
 
 a {
     color: inherit;
