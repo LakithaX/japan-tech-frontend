@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Japan Tech</title>
+        <link rel="icon" href = "images/logo.svg">
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/components.css">
+
+        <style>
+            .preview-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: var(--space-3);
+                padding: var(--space-4);
+                background: var(--light-bg);
+            }
+        </style>
+    </head>
+    <body style = "background-color: #e2e8f0;">
+
+        <div class = "preview-grid">
+
+            <!-- service card -->
+            <article class = "service-card">
+                <div class = "service-card-icon">
+                    <svg viewBox="0 0 48 48" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="12" y="4" width="24" height="40" rx="3"/>
+                        <line x1="21" y1="9" x2="27" y2="9"/>
+                        <circle cx="24" cy="38" r="2"/>
+                    </svg>                    
+                </div>
+                <h3 class = "service-card-title">Smartphone Repair</h3>
+                <p class = "service-card-text">Cracked screen, battery or water damage. We fix it fast.</p>
+            </article>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,249 @@
+.nav {
+    background: var(--nav-bg);
+    padding: var(--space-3) 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: transparent;
+    transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+}
+
+.nav.scrolled {
+    background: rgba(17, 17, 17, 0.85);          /* near-black at 85% opacity */
+    backdrop-filter: blur(10px);                 /* blurs whatever is behind the bar */
+    -webkit-backdrop-filter: blur(10px);         /* same thing for Safari */
+    padding: var(--space-2) 0;                   /* 16px instead of 24px: a slimmer bar */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);   /* soft shadow under the bar */
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;            /* wider than the 1200px container */
+    padding: 0 var(--space-4);    /* 40px of space at the sides instead of 20px */
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.nav-links a {
+    color: var(--white);
+    font-weight: 600;
+    padding-bottom: 6px;                    /* room between the text and the underline */
+    border-bottom: 2px solid transparent;   /* invisible underline that already takes up space */
+    transition: opacity 0.3s, border-color 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;                           /* dims the text; no underline */
+}
+
+.nav-links a.active {
+    border-bottom-color: var(--accent);     /* the red underline appears only on the current page */
+}
+
+.nav-logo img {
+    height: 60px;
+    width: auto;
+    transition: height 0.4s;
+}
+
+.nav.scrolled .nav-logo img {
+    height: 44px;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);          /* space between the heart and the call button */
+}
+
+.nav-call {
+    display: inline-flex;         /* lets the icon and text sit on one line */
+    align-items: center;
+    gap: var(--space-1);
+    padding: 12px 24px;           /* the whitespace inside the pill */
+    background: var(--accent);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: 999px;         /* pill shape */
+    transition: background 0.3s;
+}
+
+.nav-call:hover {
+    background: var(--accent-dark);   /* assumes you added this variable */
+}
+
+.nav-saved {
+    position: relative;
+    display: inline-flex;
+    color: var(--white);        /* this is the missing line */
+    transition: color 0.3s;
+}
+
+.nav-saved:hover {
+    color: var(--accent);
+}
+
+.nav-saved-count {
+    position: absolute;           /* floats the badge on the corner of the heart */
+    top: -6px;
+    right: -12px;
+    min-width: 18px;
+    height: 18px;
+    background: var(--accent);
+    color: var(--white);
+    font-size: 11px;
+    line-height: 18px;            /* same as height, which centers the number vertically */
+    text-align: center;
+    border-radius: 50%;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--light-bg);
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-3);
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid #eeeeee; 
+}
+
+.service-card-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-3);     /* auto left/right centers it; 24px under it */
+    display: flex;
+    align-items: center;               /* centers the SVG vertically... */
+    justify-content: center;           /* ...and horizontally inside the circle */
+    border-radius: 50%;                /* 50% turns a square into a circle */
+    background: rgba(227, 6, 19, 0.1); /* the brand red at 10% opacity: a soft tint */
+    color: var(--accent);              /* the SVG's currentColor becomes red */
+}
+
+.service-card-title {
+    font-size: 22px;
+    margin-bottom: var(--space-2);
+}
+
+.service-card-text {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;                  /* airy lines are easier to read */
+}
+
+.service-card {
+    /* ...existing lines... */
+    transition: transform 0.25s, box-shadow 0.25s;   /* animate these two changes */
+}
+
+.service-card:hover {
+    transform: translateY(-6px);                      /* move up 6px */
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);       /* a deeper shadow while lifted */
+}
+
+@media (max-width: 600px) {
+  .preview-grid {
+      padding: var(--space-3);   /* 24px instead of 40px on phones */
+  }
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  background: var(--white);
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+@media (max-width: 1000px) {
+
+    .nav-inner {
+        padding: 0 20px;               /* 40px is too much on a phone */
+    }
+
+    .nav-actions {
+        margin-left: auto;             /* pushes the heart and Call button to the right */
+        gap: var(--space-2);
+    }
+
+    .nav-toggle {
+        display: flex;
+        margin-left: var(--space-2);   /* space between the Call button and the burger */
+    }
+
+    .nav-call {
+        padding: 10px 18px;            /* smaller button on mobile */
+        box-shadow: none;              /* the glow is too heavy in a small bar */
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--nav-bg);
+        padding: var(--space-2) 20px var(--space-3);
+    }
+
+    .nav.menu-open .nav-menu {
+        display: block;
+    }
+
+    .nav.menu-open {
+        background: var(--nav-bg);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .nav-links li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);   /* faint divider between rows */
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 14px 0;
+        border-bottom: none;           /* the long underline looks odd in a list */
+    }
+
+    .nav-links a.active {
+        color: var(--accent);          /* the current page is shown in red text */
+    }
+
+    .nav.menu-open .nav-toggle span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .nav.menu-open .nav-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+    .nav.menu-open .nav-toggle span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
