@@ -1,0 +1,279 @@
+/* ===== NAV on a light banner: keep it dark from the start ===== */
+.nav.nav-solid {
+    background: rgba(17, 17, 17, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* ===== PAGE BANNER ===== */
+.page-banner {
+    position: relative;
+    padding: 170px 0 80px;                 /* top padding clears the fixed navbar */
+    background-color: #f4f4f4;
+    /* replace with your own image: put it in images/contact-banner.jpg */
+    background-image:
+        linear-gradient(90deg, #f4f4f4 0%, #f4f4f4 40%, rgba(244, 244, 244, 0) 75%),
+        url("../images/contact-banner.jpg");
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+
+.page-banner h1 {
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1;
+    margin-bottom: var(--space-2);
+}
+
+.breadcrumb {
+    display: flex;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.breadcrumb a {
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: var(--accent);
+}
+
+/* ===== SUPPORT + FORM ===== */
+.contact-section {
+    padding: var(--space-5) 0;
+}
+
+.contact-grid {
+    display: grid;                          /* one column on phones */
+    gap: var(--space-4);
+    align-items: start;
+}
+
+.contact-info h2 {
+    font-size: 30px;
+    margin-bottom: var(--space-2);
+}
+
+.contact-intro {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-3);
+    max-width: 380px;
+}
+
+.contact-list {
+    display: grid;
+    gap: var(--space-2);
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.contact-list svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--accent);
+}
+
+.contact-list a {
+    transition: color 0.3s;
+}
+
+.contact-list a:hover {
+    color: var(--accent);
+}
+
+.contact-list strong {
+    color: inherit;
+    font-weight: 600;
+}
+
+/* ===== FORM CARD ===== */
+.contact-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #eeeeee;
+    padding: var(--space-3);
+}
+
+.contact-form {
+    display: grid;
+    gap: var(--space-2);
+}
+
+.form-row {
+    display: grid;                          /* stacked label + field on phones */
+    gap: 8px;
+}
+
+.form-row label {
+    font-weight: 700;
+    padding-top: 14px;
+}
+
+.req {
+    color: var(--accent);
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 14px 24px;
+    background: #ececec;
+    border: 2px solid transparent;
+    border-radius: 999px;                   /* pill inputs */
+    font: inherit;
+    color: inherit;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.form-field textarea {
+    border-radius: 28px;
+    resize: vertical;
+    min-height: 150px;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #777;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    background: var(--white);
+    border-color: var(--accent);
+}
+
+.form-field.invalid input,
+.form-field.invalid textarea {
+    border-color: var(--accent);
+    background: rgba(227, 6, 19, 0.05);
+}
+
+.field-error {
+    min-height: 0;
+    margin: 6px 0 0 24px;
+    font-size: 13px;
+    color: var(--accent);
+}
+
+.field-error:empty {
+    display: none;
+}
+
+.form-spacer {
+    display: none;                          /* only used for the desktop label column */
+}
+
+.form-actions .btn {
+    cursor: pointer;
+}
+
+.form-actions .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.form-status {
+    margin-top: var(--space-2);
+    font-weight: 600;
+}
+
+.form-status:empty {
+    display: none;
+}
+
+.form-status.success {
+    color: #1a8a3c;
+}
+
+.form-status.error {
+    color: var(--accent);
+}
+
+/* ===== BRANCHES MAP ===== */
+.map-section {
+    position: relative;
+    background: var(--light-bg);
+}
+
+.map-frame iframe {
+    display: block;                 /* removes the small gap iframes leave underneath */
+    width: 100%;
+    height: 360px;
+    border: 0;
+}
+
+.branch-cards {
+    display: grid;                  /* one column on phones */
+    gap: var(--space-2);
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-4);
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 900px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr 1.6fr;   /* info left, wider form card right */
+        gap: var(--space-5);
+    }
+
+    .contact-card {
+        padding: var(--space-4);
+    }
+
+    .form-row {
+        grid-template-columns: 110px 1fr;   /* label column + field column */
+        gap: var(--space-2);
+        align-items: start;
+    }
+
+    .form-spacer {
+        display: block;
+    }
+
+    .map-frame iframe {
+        height: 640px;
+    }
+
+    .branch-cards {
+        position: absolute;         /* float the cards over the bottom of the map */
+        left: 50%;
+        bottom: 80px;
+        transform: translateX(-50%);
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-3);
+        padding-top: 0;
+        padding-bottom: 0;
+        pointer-events: none;       /* the map stays draggable in the gaps between cards */
+    }
+
+    .branch-card {
+        pointer-events: auto;       /* but the cards themselves stay clickable */
+    }
+}
+
+@media (max-width: 600px) {
+    .page-banner {
+        padding: 130px 0 50px;
+        /* on phones the text covers most of the image, so fade across more of it */
+        background-image:
+            linear-gradient(90deg, #f4f4f4 0%, rgba(244, 244, 244, 0.85) 60%, rgba(244, 244, 244, 0.4) 100%),
+            url("../images/contact-banner.jpg");
+    }
+
+    .contact-section {
+        padding: var(--space-4) 0;
+    }
+}
