@@ -154,6 +154,57 @@
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);       /* a deeper shadow while lifted */
 }
 
+/* ===== BRANCH CARD ===== */
+.branch-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--dark);
+    color: var(--on-dark);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.branch-card-title {
+    color: var(--white);
+    font-size: 19px;
+    margin-bottom: var(--space-2);
+}
+
+.branch-card-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);       /* dimmed so the title stands out */
+}
+
+.branch-card-text a {
+    transition: color 0.3s;
+}
+
+.branch-card-text a:hover {
+    color: var(--white);
+}
+
+.branch-card-btn {
+    align-self: flex-start;                 /* keeps the button its own width, not stretched */
+    margin-top: auto;                       /* pushes the button to the bottom so all cards line up */
+    padding: 12px 32px;
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: 999px;                   /* pill shape */
+    transition: background 0.3s;
+}
+
+.branch-card-btn:hover {
+    background: var(--accent);
+}
+
+/* space between the address block and the button */
+.branch-card-text + .branch-card-btn {
+    margin-top: var(--space-4);
+}
+
 @media (max-width: 600px) {
   .preview-grid {
       padding: var(--space-3);   /* 24px instead of 40px on phones */
