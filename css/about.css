@@ -1,0 +1,24 @@
+/* =====================================================
+   ABOUT PAGE (layout only: the split section,
+   testimonials and banner are components
+   in components.css)
+   Mobile-first. Breakpoint: 900px
+   ===================================================== */
+
+.about-intro {
+    padding: var(--space-4) 0;
+}
+
+.about-testimonials {
+    padding: var(--space-4) 0 var(--space-5);
+}
+
+@media (min-width: 900px) {
+    .about-intro {
+        padding: var(--space-5) 0;
+    }
+
+    .about-testimonials {
+        padding: var(--space-5) 0 calc(var(--space-5) + var(--space-3));
+    }
+}

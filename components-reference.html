@@ -174,6 +174,62 @@
                     </article>
         </div>
 
+        <p class="ref-label">Section header, left-aligned variant (.section-header--left)</p>
+        <div class="ref-block">
+            <div class="container">
+                <header class="section-header section-header--left">
+                    <h2 class="section-title">Section Title</h2>
+                </header>
+            </div>
+        </div>
+
+        <p class="ref-label">Split section (.split, add .split--reverse to put the image on the left)</p>
+        <div class="ref-block">
+            <div class="container split split--reverse">
+                <div class="split-text">
+                    <header class="section-header section-header--left">
+                        <h2 class="section-title">Split Section</h2>
+                    </header>
+                    <p>Text on one side and an image on the other. On phones the text comes first and the image goes underneath.</p>
+                </div>
+                <div class="split-media">
+                    <img src="images/about-devices.png" alt="Placeholder image" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <p class="ref-label">Testimonial slider (needs js/testimonials.js)</p>
+        <div class="ref-block">
+            <div class="container">
+                <section class="testimonial" data-testimonials data-interval="6000" role="region" aria-roledescription="carousel" aria-label="Customer testimonials">
+                    <div class="testimonial-slides">
+                        <button class="testimonial-arrow testimonial-arrow--prev" type="button" aria-label="Previous testimonial"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg></button>
+                        <button class="testimonial-arrow testimonial-arrow--next" type="button" aria-label="Next testimonial"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></button>
+
+                    <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="1 of 3">
+                        <svg class="testimonial-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"/></svg>
+                        <p class="testimonial-text">&ldquo;These guys fixed my phone so fast and it looks great! I even got a screen protector for a little cheaper since they were already fixing my phone. Absolutely love the service, definitely recommend them!&rdquo;</p>
+                        <p class="testimonial-name">Megan Steele</p>
+                        <img class="testimonial-avatar" src="images/avatar-1.jpg" alt="" loading="lazy">
+                    </article>
+                    <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="2 of 3">
+                        <svg class="testimonial-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"/></svg>
+                        <p class="testimonial-text">&ldquo;Dropped my laptop off in the morning and picked it up that same afternoon, running like new. Honest pricing and really friendly staff.&rdquo;</p>
+                        <p class="testimonial-name">James Carter</p>
+                        <img class="testimonial-avatar" src="images/avatar-2.jpg" alt="" loading="lazy">
+                    </article>
+                    <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="3 of 3">
+                        <svg class="testimonial-icon" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 17h3l2-4V7H5v6h3l-2 4zm8 0h3l2-4V7h-6v6h3l-2 4z"/></svg>
+                        <p class="testimonial-text">&ldquo;My game console had been overheating for months. They cleaned it, replaced the fan and explained everything clearly. Great service.&rdquo;</p>
+                        <p class="testimonial-name">Priya Nair</p>
+                        <img class="testimonial-avatar" src="images/avatar-3.jpg" alt="" loading="lazy">
+                    </article>
+                    </div>
+                    <div class="testimonial-dots"></div>
+                </section>
+            </div>
+        </div>
+
         <p class="ref-label">Footer</p>
         <footer class="footer">
             <div class="container footer-grid">
@@ -257,5 +313,6 @@
         </footer>
 
         <script src="js/nav.js"></script>
+        <script src="js/testimonials.js"></script>
     </body>
 </html>
