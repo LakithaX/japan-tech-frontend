@@ -1,0 +1,284 @@
+/* =====================================================
+   CONTACT PAGE
+   Mobile-first: base styles are for phones,
+   min-width queries add the tablet / desktop layout.
+   Breakpoints: 600px (phone), 900px (desktop)
+   ===================================================== */
+/* the page banner, breadcrumb and nav-solid navbar now live in components.css */
+
+/* ===== SUPPORT + FORM ===== */
+.contact-section {
+    padding: var(--space-4) 0;
+}
+
+.contact-grid {
+    display: grid;                          /* one column on phones */
+    gap: var(--space-4);
+    align-items: start;
+}
+
+.contact-info h2 {
+    font-size: 28px;
+    margin-bottom: var(--space-2);
+}
+
+.contact-intro {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-3);
+    max-width: 380px;
+}
+
+.contact-list {
+    display: grid;
+    gap: var(--space-2);
+}
+
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.contact-list svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--accent);
+}
+
+.contact-list a {
+    display: inline-block;
+    padding: 4px 0;                         /* bigger tap area on phones */
+    transition: color 0.3s;
+}
+
+.contact-list a:hover {
+    color: var(--accent);
+}
+
+.contact-list strong {
+    color: inherit;
+    font-weight: 600;
+}
+
+/* ===== FORM CARD ===== */
+.contact-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid #eeeeee;
+    padding: var(--space-3) var(--space-2);
+}
+
+.contact-form {
+    display: grid;
+    gap: var(--space-2);
+}
+
+.form-row {
+    display: grid;                          /* stacked label + field on phones */
+    gap: 8px;
+}
+
+.form-row label {
+    font-weight: 700;
+    padding-left: 8px;
+}
+
+.req {
+    color: var(--accent);
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 14px 24px;
+    background: #ececec;
+    border: 2px solid transparent;
+    border-radius: 999px;                   /* pill inputs */
+    font: inherit;
+    font-size: 16px;                        /* 16px stops iPhones zooming in when a field is tapped */
+    color: inherit;
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.form-field textarea {
+    border-radius: 28px;
+    resize: vertical;
+    min-height: 150px;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #777;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    background: var(--white);
+    border-color: var(--accent);
+}
+
+.form-field.invalid input,
+.form-field.invalid textarea {
+    border-color: var(--accent);
+    background: rgba(227, 6, 19, 0.05);
+}
+
+.field-error {
+    margin: 6px 0 0 24px;
+    font-size: 13px;
+    color: var(--accent);
+}
+
+.field-error:empty {
+    display: none;
+}
+
+.form-spacer {
+    display: none;                          /* only used for the desktop label column */
+}
+
+.form-actions .btn {
+    width: 100%;                            /* full-width button is easier to tap on a phone */
+    cursor: pointer;
+}
+
+.form-actions .btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.form-status {
+    margin-top: var(--space-2);
+    font-weight: 600;
+}
+
+.form-status:empty {
+    display: none;
+}
+
+.form-status.success {
+    color: #1a8a3c;
+}
+
+.form-status.error {
+    color: var(--accent);
+}
+
+/* ===== BRANCHES MAP ===== */
+.map-section {
+    position: relative;
+    background: var(--light-bg);
+}
+
+.map-frame iframe {
+    display: block;                 /* removes the small gap iframes leave underneath */
+    width: 100%;
+    height: 320px;                  /* shorter strip on phones */
+    border: 0;
+}
+
+.branch-cards {
+    display: grid;                  /* cards stack under the map on phones */
+    gap: var(--space-2);
+    padding-top: var(--space-3);
+    padding-bottom: var(--space-4);
+}
+
+/* keyboard focus, visible on both the dark cards and the light form */
+.branch-card-btn:focus-visible,
+.form-actions .btn:focus-visible,
+.contact-list a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* ===== TABLET AND UP: 600px ===== */
+@media (min-width: 600px) {
+
+    .contact-card {
+        padding: var(--space-4) var(--space-3);
+    }
+
+    .form-actions .btn {
+        width: auto;                        /* button goes back to its natural size */
+    }
+
+    .map-frame iframe {
+        height: 420px;
+    }
+
+    .branch-cards {
+        grid-template-columns: repeat(2, 1fr);   /* two cards per row on tablets */
+    }
+}
+
+/* ===== DESKTOP: 900px ===== */
+@media (min-width: 900px) {
+
+    .contact-section {
+        padding: var(--space-5) 0;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr 1.6fr;   /* info left, wider form card right */
+        gap: var(--space-5);
+    }
+
+    .contact-info h2 {
+        font-size: 30px;
+    }
+
+    .contact-card {
+        padding: var(--space-4);
+    }
+
+    .form-row {
+        grid-template-columns: 110px 1fr;   /* label column + field column */
+        gap: var(--space-2);
+        align-items: start;
+    }
+
+    .form-row label {
+        padding: 14px 0 0;
+    }
+
+    .form-spacer {
+        display: block;
+    }
+
+    /* map with cards floating over its bottom edge */
+    .map-frame iframe {
+        height: 640px;
+    }
+
+    .branch-cards {
+        position: absolute;         /* float the cards over the bottom of the map */
+        left: 50%;
+        bottom: 80px;
+        transform: translateX(-50%);
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-3);
+        padding-top: 0;
+        padding-bottom: 0;
+        pointer-events: none;       /* the map stays draggable in the gaps between cards */
+    }
+
+    .branch-card {
+        pointer-events: auto;       /* but the cards themselves stay clickable */
+    }
+}
+
+/* ===== PEOPLE WHO PREFER LESS MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    .form-field input,
+    .form-field textarea,
+    .contact-list a {
+        transition: none;
+    }
+}

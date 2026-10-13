@@ -1,0 +1,54 @@
+/* =====================================================
+   REPAIRS PAGE (layout only: the cards, banner and
+   section headers are components in components.css)
+   Mobile-first. Breakpoints: 600px, 900px
+   ===================================================== */
+
+.services-section {
+    padding: var(--space-4) 0;
+}
+
+.services-grid {
+    display: grid;                          /* one card per row on phones */
+    gap: var(--space-3);
+}
+
+.news-section {
+    padding: var(--space-4) 0 var(--space-5);
+}
+
+.news-grid {
+    display: grid;                          /* one blog card per row on phones */
+    gap: var(--space-4);
+}
+
+/* tablet: 2 service cards per row, 2 blog cards per row */
+@media (min-width: 600px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* desktop: 3 service cards per row */
+@media (min-width: 900px) {
+    .services-section {
+        padding: var(--space-5) 0 var(--space-4);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-4);
+    }
+
+    .news-section {
+        padding: var(--space-4) 0 var(--space-5);
+    }
+
+    .news-grid {
+        gap: var(--space-4);
+    }
+}
