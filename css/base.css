@@ -70,3 +70,16 @@ ul {
     background: var(--accent-dark);
 }
 
+.section {
+    padding: 56px 0;                  /* phone: comfortable but not wasteful */
+}
+
+.section-alt {
+    background: var(--light-bg);      /* grey variant, used to alternate sections */
+}
+
+@media (min-width: 900px) {
+    .section {
+        padding: var(--space-5) 0;    /* 80px on larger screens */
+    }
+}

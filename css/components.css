@@ -253,6 +253,115 @@
     text-align: center;
 }
 
+/* ===== SECTION HEADING ===== */
+.section-heading {
+    max-width: 640px;                  /* keeps the subtitle line short and readable */
+    margin: 0 auto var(--space-4);     /* centered; 40px of space below */
+    text-align: center;
+}
+
+.section-heading h2 {
+    font-size: clamp(28px, 5vw, 40px); /* scales with the screen: 28px on phones, 40px at most */
+    color: var(--dark);
+}
+
+.section-heading h2::after {
+    content: "";                       /* a pseudo-element needs this to exist, even if empty */
+    display: block;                    /* sits on its own line under the text */
+    width: 56px;
+    height: 4px;
+    margin: var(--space-2) auto 0;     /* centered, 16px above */
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+.section-heading p {
+    margin-top: var(--space-2);
+    color: var(--muted);
+}
+
+/* ===== SERVICE CARD ===== */
+.service-card {
+    display: flex;
+    flex-direction: column;            /* stack icon, title, text, link vertically */
+    align-items: center;               /* centers each child horizontally, so no margin: auto needed */
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: var(--space-3);           /* phone: 24px all round */
+    text-align: center;
+    box-shadow: var(--shadow);
+    border: 1px solid #eeeeee;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.1);
+}
+
+.service-card-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: var(--space-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(227, 6, 19, 0.1);
+    color: var(--accent);
+}
+
+/* one place styles every icon, so the HTML doesn't repeat stroke attributes */
+.service-card-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.service-card-title {
+    font-size: 20px;
+    margin-bottom: var(--space-1);
+}
+
+.service-card-text {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: var(--space-3);
+}
+
+.service-card-link {
+    margin-top: auto;                  /* pushes the link to the bottom of the card */
+    padding: 12px 28px;
+    border-radius: 999px;
+    background: var(--light-bg);
+    color: var(--dark);
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.service-card:hover .service-card-link,
+.service-card-link:hover {
+    background: var(--accent);         /* hovering anywhere on the card lights up its link */
+    color: var(--white);
+}
+
+.section-cta {
+    margin-top: var(--space-4);
+    text-align: center;
+}
+
+.section-cta p {
+    margin-bottom: var(--space-2);
+    color: var(--dark);
+    font-weight: 500;
+}
+
 @media (max-width: 1000px) {
 
     .nav-inner {
@@ -342,3 +451,31 @@
         text-align: left;
     }
 }
+
+.service-grid {
+    display: grid;
+    gap: var(--space-2);               /* no columns defined = one column on phones */
+}
+
+@media (min-width: 640px) {
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);   /* tablets: two columns */
+        gap: var(--space-3);
+    }
+
+    .service-card {
+        padding: var(--space-4) var(--space-3);  /* roomier card */
+    }
+
+    .service-card-icon {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (min-width: 960px) {
+    .service-grid {
+        grid-template-columns: repeat(3, 1fr);   /* desktop: three columns */
+    }
+}
+
