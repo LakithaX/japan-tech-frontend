@@ -427,6 +427,225 @@
     }
 }
 
+/* ===== TESTIMONIAL SLIDER ===== */
+.testimonial {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.testimonial-slides {
+    display: grid;                          /* every card sits in the same cell, so the tallest one sets the height */
+}
+
+.testimonial-card {
+    grid-area: 1 / 1;
+    position: relative;
+    padding: var(--space-3) var(--space-2) 68px;   /* extra bottom space: the top half of the avatar sits inside the card */
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    opacity: 0;                             /* inactive cards are hidden... */
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.testimonial-card.is-active {
+    opacity: 1;                             /* ...the active one fades in */
+    visibility: visible;
+}
+
+/* without JavaScript, still show the first card */
+.testimonial:not(.is-ready) .testimonial-card:first-child {
+    opacity: 1;
+    visibility: visible;
+}
+
+.testimonial-icon {
+    display: block;
+    margin: 0 auto var(--space-2);
+    color: var(--dark);                     /* dark quote icon, like the design */
+}
+
+.testimonial-text {
+    max-width: 860px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.testimonial-name {
+    margin-top: var(--space-3);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.testimonial-avatar {
+    position: absolute;                     /* hangs over the bottom edge of the card */
+    left: 50%;
+    bottom: -44px;                          /* half of the 88px height */
+    transform: translateX(-50%);
+    width: 88px;
+    height: 88px;
+    border: 4px solid var(--white);
+    border-radius: 50%;
+    object-fit: cover;
+    background: #dddddd;                    /* shows while the photo loads */
+}
+
+.testimonial-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: calc(44px + var(--space-2));   /* clears the avatar that hangs below the card */
+}
+
+.testimonial-dot {
+    width: 28px;                            /* roomy tap area; the visible dot is drawn smaller below */
+    height: 28px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.testimonial-dot::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 0 auto;
+    background: #cccccc;
+    border-radius: 50%;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.testimonial-dot:hover::before {
+    background: #999999;
+}
+
+.testimonial-dot[aria-current="true"]::before {
+    background: var(--accent);
+    transform: scale(1.3);
+}
+
+.testimonial-dot:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 50%;
+}
+
+@media (min-width: 900px) {
+    .testimonial-card {
+        padding: var(--space-4) var(--space-4) 72px;
+    }
+
+    .testimonial-text {
+        font-size: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .testimonial-card,
+    .testimonial-dot::before {
+        transition: none;
+    }
+}
+
+/* ===== SECTION HEADER: LEFT-ALIGNED VARIANT ===== */
+.section-header--left {
+    text-align: left;
+}
+
+.section-header--left::after {
+    margin-left: 0;                         /* underline starts at the left edge instead of the centre */
+}
+
+/* ===== SPLIT SECTION (text on one side, image on the other) ===== */
+.split {
+    display: grid;                          /* stacked on phones: text first, then image */
+    gap: var(--space-4);
+    align-items: center;
+}
+
+.split-text p {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.split-text p + p {
+    margin-top: var(--space-3);
+}
+
+.split-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ===== TESTIMONIAL ARROWS (desktop only; phones use swipe and dots) ===== */
+.testimonial-slides {
+    position: relative;                     /* the arrows are positioned against the cards area */
+}
+
+.testimonial-arrow {
+    display: none;
+    position: absolute;
+    top: 50%;
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #bbbbbb;
+    cursor: pointer;
+    z-index: 2;
+    transition: color 0.3s;
+}
+
+.testimonial-arrow--prev {
+    left: -60px;
+}
+
+.testimonial-arrow--next {
+    right: -60px;
+}
+
+.testimonial-arrow:hover {
+    color: var(--accent);
+}
+
+.testimonial-arrow:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 50%;
+}
+
+@media (min-width: 900px) {
+    .split {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-5);
+    }
+
+    .split--reverse .split-media {
+        order: -1;                          /* image goes on the left; on phones the text still comes first */
+    }
+}
+
+@media (min-width: 1100px) {
+    .testimonial-arrow {
+        display: flex;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .testimonial-arrow {
+        transition: none;
+    }
+}
+
 @media (max-width: 600px) {
   .preview-grid {
       padding: var(--space-3);   /* 24px instead of 40px on phones */
