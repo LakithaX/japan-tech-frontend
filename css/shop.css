@@ -1,0 +1,356 @@
+/* ===== SHOP PAGE ===== */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ----- toolbar ----- */
+.shop-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+}
+
+.shop-search {
+    position: relative;
+    flex: 1 1 100%;                     /* full row on phones */
+}
+
+.shop-search svg {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+    fill: none;
+    stroke: var(--muted);
+    stroke-width: 2;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+.shop-search input,
+.shop-sort select,
+.filter-price input {
+    width: 100%;
+    padding: 10px 16px;
+    font: inherit;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid #dcdcdc;
+    border-radius: 999px;
+}
+
+.shop-search input {
+    padding-left: 44px;
+}
+
+.shop-search input:focus,
+.shop-sort select:focus,
+.filter-price input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+    border-color: var(--accent);
+}
+
+.shop-sort {
+    flex: 1 1 0;
+}
+
+.shop-filter-toggle {
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid #dcdcdc;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.shop-filter-count {
+    display: inline-block;
+    min-width: 22px;
+    margin-left: 6px;
+    padding: 0 6px;
+    font-size: 13px;
+    line-height: 22px;
+    text-align: center;
+    color: var(--white);
+    background: var(--accent);
+    border-radius: 999px;
+}
+
+/* ----- layout ----- */
+.shop-layout {
+    display: block;
+}
+
+.shop-count {
+    margin-bottom: var(--space-2);
+    color: var(--muted);
+}
+
+/* ----- filters: slide-in panel on phones ----- */
+.shop-filters {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 200;
+    width: min(340px, 88vw);
+    padding: var(--space-3);
+    overflow-y: auto;
+    background: var(--white);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    visibility: hidden;
+}
+
+.shop-filters.is-open {
+    transform: none;
+    visibility: visible;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);   /* dims the page behind */
+}
+
+.shop-filters-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+}
+
+.shop-filters-head h2 {
+    font-size: 20px;
+}
+
+.shop-filters-close {
+    font-size: 32px;
+    line-height: 1;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--text);
+}
+
+.filter-group {
+    margin-bottom: var(--space-3);
+    padding: 0 0 var(--space-3);
+    border: 0;
+    border-bottom: 1px solid #ececec;
+}
+
+.filter-group legend {
+    margin-bottom: var(--space-1);
+    font-weight: 600;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 0;
+    cursor: pointer;
+}
+
+.filter-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+}
+
+.filter-price {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.filter-price input {
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.shop-filters-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.btn-text {
+    font: inherit;
+    font-weight: 600;
+    color: var(--accent);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.shop-filters-apply {
+    padding: 9px 22px;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ----- empty state ----- */
+.shop-empty {
+    padding: var(--space-5) var(--space-3);
+    text-align: center;
+    background: var(--white);
+    border-radius: var(--radius);
+}
+
+.shop-empty p {
+    max-width: 440px;
+    margin: var(--space-1) auto var(--space-3);
+    color: var(--muted);
+}
+
+.shop-empty .btn {
+    padding: 9px 22px;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ----- loading skeletons ----- */
+.product-card.is-loading {
+    min-height: 320px;
+    background: linear-gradient(90deg, #ececec 25%, #f6f6f6 50%, #ececec 75%);
+    background-size: 200% 100%;
+    animation: shop-shimmer 1.2s infinite;
+}
+
+@keyframes shop-shimmer {
+    to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-card.is-loading { animation: none; }
+    .shop-filters { transition: none; }
+}
+
+/* ----- extra card details used on the shop ----- */
+.product-card-tags {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.product-card-tag {
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--light-bg);
+    border-radius: 999px;
+}
+
+.product-card-tag.is-used {
+    color: var(--accent-dark);
+}
+
+.product-card.is-sold-out .product-card-media {
+    opacity: 0.45;
+}
+
+.product-card-stock {
+    margin-top: 4px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* ----- pagination ----- */
+.shop-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-1);
+    margin-top: var(--space-4);
+}
+
+.shop-pagination button {
+    min-width: 44px;
+    padding: 7px 14px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid #dcdcdc;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.shop-pagination button[aria-current="page"] {
+    color: var(--white);
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.shop-pagination button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+/* ===== tablet and up: filters become a sidebar ===== */
+@media (min-width: 900px) {
+    .shop-search {
+        flex: 1 1 auto;
+    }
+
+    .shop-sort {
+        flex: 0 0 240px;
+    }
+
+    .shop-filter-toggle,
+    .shop-filters-close,
+    .shop-filters-apply {
+        display: none;
+    }
+
+    .shop-layout {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: var(--space-4);
+        align-items: start;
+    }
+
+    .shop-filters {
+        position: sticky;
+        inset: auto;
+        top: 100px;
+        z-index: auto;
+        width: auto;
+        padding: var(--space-3);
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        transform: none;
+        visibility: visible;
+        max-height: calc(100vh - 120px);
+    }
+
+    .shop-filters.is-open {
+        box-shadow: var(--shadow);
+    }
+}
+
+/* the hidden attribute must always win over display rules like .btn */
+[hidden] {
+    display: none !important;
+}

@@ -127,6 +127,16 @@
                                 </div>
                             </div>
 
+                            <div class="form-row">
+                                <label for="photos">Photos <span class="optional">(optional)</span></label>
+                                <div class="form-field">
+                                    <input type="file" id="photos" name="photos" accept="image/*" multiple aria-describedby="photoHint photoError">
+                                    <p class="field-hint" id="photoHint">Add up to 4 photos of the damage, 5 MB each.</p>
+                                    <p class="field-error" id="photoError" role="alert"></p>
+                                    <ul class="upload-previews" id="photoPreview"></ul>
+                                </div>
+                            </div>
+
                             <div class="form-row form-actions">
                                 <span class="form-spacer"></span>
                                 <div class="form-field">
@@ -267,5 +277,6 @@
 
         <script src="js/nav.js"></script>
         <script src="js/contact.js"></script>
+        <script src="js/photo-upload.js"></script>
     </body>
 </html>

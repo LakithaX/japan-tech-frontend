@@ -46,6 +46,59 @@
     line-height: 1.2;
 }
 
+/* ===== PROMO BAND ===== */
+.promo {
+    position: relative;                 /* anchor for the phone */
+    overflow: hidden;                   /* crops the phone at the band's bottom edge */
+    padding: 48px 0;
+    background: var(--white);
+}
+
+.promo-content {
+    position: relative;                 /* keeps the text above the phone */
+    z-index: 1;
+    max-width: 520px;
+}
+
+.promo h2 {
+    font-size: clamp(24px, 4.5vw, 34px);
+    line-height: 1.25;
+}
+
+.promo p {
+    margin-top: var(--space-1);
+    color: var(--muted);
+}
+
+.promo .btn {
+    margin-top: var(--space-3);
+}
+
+.promo-image {
+    display: none;                      /* phones: no image */
+}
+
+@media (min-width: 760px) {
+    .promo {
+        padding: 64px 0;                /* about the same band height as before */
+    }
+}
+
+/* the phone only appears when there is room beside the text */
+@media (min-width: 960px) {
+    .promo-image {
+        display: block;
+        position: absolute;
+        top: 72px;                      /* how far the phone starts below the band's top edge */
+        right: max(20px, calc((100% - 1200px) / 2 + 20px));   /* lines up with the container's right edge */
+        width: 340px;
+    }
+
+    .promo-image img {
+        width: 100%;
+        height: auto;
+    }
+}
 @media (max-width: 600px) {
     .hero-video {
         object-position: 70% center;   /* shifts the visible window to the right; try 30%, 50%, 70% */
